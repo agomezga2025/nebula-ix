@@ -3,6 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+/* ===== VIDEO PROMOCIONAL ===== */
+
+.promo-video {
+  position: relative;
+  padding: 100px 24px;
+  background: #090909;
+  overflow: hidden;
+}
+
+.promo-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(180, 20, 20, 0.22), transparent 45%),
+    linear-gradient(180deg, rgba(0,0,0,0.9), rgba(20,0,0,0.95));
+  pointer-events: none;
+}
+
+.promo-video .section-title,
+.promo-video__frame {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-video__frame {
+  max-width: 1050px;
+  margin: 50px auto 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 60, 60, 0.45);
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow:
+    0 0 35px rgba(255, 0, 0, 0.25),
+    inset 0 0 25px rgba(255, 255, 255, 0.04);
+}
+
+.promo-video__frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  filter: contrast(1.08) brightness(0.9);
+}
+</style>
     <title>NEBULA-IX</title>
     <meta
       name="description"
@@ -357,6 +402,23 @@ Total Duration: ${c-l}ms`),V.resolve({didRun:!0,sequenceNumbersCollected:r,targe
 
       <div class="comments__list"></div>
     </section>
+    function videoPromocional() {
+  return `
+    <section class="section promo-video" id="video-promocional">
+      <div class="section-title">
+        <span></span>
+        <h2>VÍDEO PROMOCIONAL</h2>
+      </div>
+
+      <div class="promo-video__frame">
+        <video controls poster="./assets/video-poster.png">
+          <source src="./assets/video-promocional.mp4" type="video/mp4" />
+          Tu navegador no soporta la reproducción de vídeo.
+        </video>
+      </div>
+    </section>
+  `;
+}
   `}function im(){let e=document.querySelector(`.comments__form`),t=document.querySelector(`.comments__name`),n=document.querySelector(`.comments__message`),r=document.querySelector(`.comments__list`);!e||!t||!n||!r||(Ld(Sd(Nu(nm,`comments`),Ed(`createdAt`,`desc`)),e=>{r.innerHTML=e.docs.map(e=>{let t=e.data();return`
           <article class="comment-card">
             <h3>${am(t.name||`Anónimo`)}</h3>
@@ -367,6 +429,7 @@ Total Duration: ${c-l}ms`),V.resolve({didRun:!0,sequenceNumbersCollected:r,targe
   ${t()}
   ${n()}
   ${r()}
+  ${videoPromocional()}
   ${i()}
   ${a()}
   ${o()}
