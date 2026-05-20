@@ -94,6 +94,23 @@
         </div>
       </div>
     </section>
+function videoPromocional() {
+  return `
+    <section class="section promo-video" id="video-promocional">
+      <div class="section-title">
+        <span></span>
+        <h2>VÍDEO PROMOCIONAL</h2>
+      </div>
+
+      <div class="promo-video__frame">
+        <video controls poster="./assets/video-poster.png">
+          <source src="./assets/video-promocional.mp4" type="video/mp4" />
+          Tu navegador no soporta la reproducción de vídeo.
+        </video>
+      </div>
+    </section>
+  `;
+}
   `}function i(){return`
     <section class="section files" id="expedientes">
       <img class="files__background" src="./assets/expedientes-bg.png" alt="" />
@@ -308,6 +325,7 @@ Total Duration: ${c-l}ms`),V.resolve({didRun:!0,sequenceNumbersCollected:r,targe
   ${n()}
   ${r()}
   ${i()}
+  ${videoPromocional()}
   ${a()}
   ${o()}
   ${l()}
